@@ -1,0 +1,15 @@
+experiment_id: deeplabv3_resnet50_multitask
+architecture: deeplabv3_resnet50
+pretrained: true
+fine_classes: 31
+visibility_classes: 14
+height: 512
+width: 896
+n_folds: 5
+epochs: 100
+seed: 2026
+batch_size: 1
+gradient_accumulation: 4
+num_workers: 4
+learning_rate: 0.0003
+weight_decay: 0.0001

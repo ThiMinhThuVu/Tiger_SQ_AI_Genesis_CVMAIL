@@ -1,0 +1,33 @@
+{
+  "status": "running",
+  "started_unix": 1789439978.6833308,
+  "candidates": [
+    {
+      "arm": "geo",
+      "version": "ver7_task2_geosurg_ic",
+      "sha256": "e51eb68310b51702f92a99dbb0473bf6f858375b99e67ef34f9af8eb14b41ee3",
+      "archive": "/mnt/disk_1/backup_user/thu.vtm/TIGER_SQ_AI/submission/dist/tigersqai_Genesis_CVMAIL_ver7_task2_geosurg_ic.tar.gz",
+      "entity_id": "syn77445977",
+      "entity_version": 1,
+      "method_wiki_id": "643573",
+      "submission": {
+        "id": "9780614",
+        "evaluationId": "9619534",
+        "entityId": "syn77445977",
+        "versionNumber": 1,
+        "name": "Genesis_CVMAIL_ver7_task2_geosurg_ic",
+        "teamId": "3602194",
+        "createdOn": "2026-09-15T02:53:48.109Z"
+      },
+      "evaluation_status": "RECEIVED"
+    },
+    {
+      "arm": "aug",
+      "version": "ver6_task2_aug",
+      "sha256": "1c1e90707e06ea9c07f44982af1fb0111869c146a4b7e20819933cafcb1d80f3",
+      "archive": "/mnt/disk_1/backup_user/thu.vtm/TIGER_SQ_AI/submission/dist/tigersqai_Genesis_CVMAIL_ver6_task2_aug.tar.gz"
+    }
+  ],
+  "final_candidate": "aug",
+  "notification_email_sent": false
+}

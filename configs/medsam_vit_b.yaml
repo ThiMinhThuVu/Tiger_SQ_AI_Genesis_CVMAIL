@@ -1,0 +1,17 @@
+experiment_id: medsam_vit_b_multitask
+model_type: medsam_semantic
+checkpoint: checkpoints/medsam/medsam_vit_b.pth
+num_labels: 31
+height: 512
+width: 896
+n_folds: 5
+epochs: 100
+seed: 2026
+batch_size: 1
+gradient_accumulation: 4
+num_workers: 4
+learning_rate: 0.0003
+encoder_learning_rate: 0.00001
+weight_decay: 0.0001
+freeze_encoder: true
+prompt_policy: fixed_full_image_box

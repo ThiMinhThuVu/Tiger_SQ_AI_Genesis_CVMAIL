@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#SBATCH --job-name=m2f-r50-cv100
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=6
+#SBATCH --mem=64G
+#SBATCH --time=48:00:00
+#SBATCH --output=logs/mask2former_resnet50_100fold_7-1-2_%j.log
+#SBATCH --error=logs/mask2former_resnet50_100fold_7-1-2_%j.log
+set -euo pipefail
+cd /mnt/disk_1/backup_user/thu.vtm/TIGER_SQ_AI
+source .venv/bin/activate
+python scripts/train_mask2former.py --config configs/mask2former_resnet50.yaml --run-all-folds

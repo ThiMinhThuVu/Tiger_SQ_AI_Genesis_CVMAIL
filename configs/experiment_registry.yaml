@@ -1,0 +1,242 @@
+sam2_hiera_tiny_partial:
+  priority: 1
+  status: running
+  architecture: SAM2 Hiera Tiny
+  adaptation: semantic encoder-decoder
+  fine_tuning: partial
+  pretrained_checkpoint: checkpoints/sam2.1_hiera_tiny.pt
+  pretrained_checkpoint_sha256: 7402e0d864fa82708a20fbd15bc84245c2f26dff0eb43a4b5b93452deb34be69
+  fine_output_classes: 31
+  coarse_strategy: derived_from_fine
+  visibility_classes: 14
+  resolution:
+  - 512
+  - 896
+  folds:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  epochs: 100
+  split_case_ratio: 7:1:2
+  boundary_loss: semantic edge weighted BCE + Dice
+  early_stopping:
+    monitor: val_loss
+    patience: 15
+    min_delta: 0.0001
+  physical_batch_size: 1
+  gradient_accumulation: 4
+  effective_batch_size: 4
+  gradient_checkpointing: true
+  gpu: RTX A5000 24GB
+  max_target_vram_gb: 22
+  last_completed_phase: smoke_87_passed_full_90_running
+  completed_folds: []
+  failure_reason: Fold 0 completed 100 epochs and passed local metrics, prediction
+    validation, and official downscaled conformance; the unmodified native-resolution
+    official evaluator timed out after 300 seconds during Task 1 (return code 124).
+    See fold_0/official_report.log.
+sam2_hiera_small_partial:
+  priority: 2
+  status: running
+  blocked_by: sam2_hiera_tiny_partial
+  architecture: SAM2 Hiera Small
+  adaptation: semantic encoder-decoder
+  fine_tuning: partial
+  fine_output_classes: 31
+  coarse_strategy: derived_from_fine
+  visibility_classes: 14
+  resolution:
+  - 512
+  - 896
+  physical_batch_size: 1
+  gradient_accumulation: 4
+  effective_batch_size: 4
+  epochs: 100
+  split_case_ratio: 7:1:2
+  boundary_loss: semantic edge weighted BCE + Dice
+  early_stopping:
+    monitor: val_loss
+    patience: 15
+    min_delta: 0.0001
+  pretrained_checkpoint: checkpoints/sam2.1_hiera_small.pt
+  pretrained_checkpoint_sha256: 6d1aa6f30de5c92224f8172114de081d104bbd23dd9dc5c58996f0cad5dc4d38
+  last_completed_phase: smoke_86_passed_full_91_running
+  completed_folds: []
+sam2_hiera_base_plus_partial:
+  priority: exploratory
+  status: running
+  architecture: SAM2 Hiera Base+
+  adaptation: semantic encoder-decoder
+  fine_tuning: partial
+  pretrained_checkpoint: checkpoints/sam2.1_hiera_base_plus.pt
+  pretrained_checkpoint_sha256: a2345aede8715ab1d5d31b4a509fb160c5a4af1970f199d9054ccfb746c004c5
+  resolution:
+  - 512
+  - 896
+  epochs: 100
+  split_case_ratio: 7:1:2
+  boundary_loss: semantic edge weighted BCE + Dice
+  early_stopping:
+    monitor: val_loss
+    patience: 15
+    min_delta: 0.0001
+  physical_batch_size: 1
+  gradient_accumulation: 4
+  effective_batch_size: 4
+  gradient_checkpointing: true
+  oracle_prompt: false
+  go_no_go: Tiny Fold 0 accepted; peak reserved VRAM <=20GB; stable; score >=0.5530;
+    Small smoke <=22GB and <=2x Tiny iteration time
+  last_completed_phase: smoke_88_passed_full_89_running
+  completed_folds: []
+medsam_vit_b:
+  priority: 3
+  status: blocked
+  blocked_by: sam2_hiera_tiny_partial
+  architecture: MedSAM ViT-B
+  oracle_prompt: false
+sam_vit_b:
+  priority: 4
+  status: blocked
+  blocked_by: sam2_hiera_tiny_partial
+  architecture: SAM ViT-B
+  oracle_prompt: false
+mask2former_swin_tiny:
+  priority: next
+  status: running
+  architecture: Mask2Former
+  backbone: Swin-Tiny
+  pretrained_checkpoint: facebook/mask2former-swin-tiny-coco-panoptic
+  resolution: [512, 896]
+  folds: [0, 1, 2, 3, 4]
+  epochs: 100
+  split_case_ratio: 7:1:2
+  checkpoint_selection: validation loss
+mask2former_swin_small:
+  priority: active_comparison
+  status: running_job_124
+  architecture: Mask2Former
+  backbone: Swin-Small
+  pretrained_checkpoint: facebook/mask2former-swin-small-coco-panoptic
+  resolution: [512, 896]
+  folds: [0, 1, 2, 3, 4]
+  epochs: 100
+  split_case_ratio: 7:1:2
+  checkpoint_selection: validation loss
+  comparison_baseline: mask2former_swin_tiny
+mask2former_resnet50:
+  priority: next
+  status: running
+  architecture: Mask2Former
+  backbone: ResNet-50
+  pretrained_backbone: ImageNet
+  resolution: [512, 896]
+  folds: [0, 1, 2, 3, 4]
+  epochs: 100
+  split_case_ratio: 7:1:2
+  checkpoint_selection: validation selection_score
+dino_v2_vits14:
+  priority: additional
+  status: planned
+  architecture: DINOv2 ViT-S/14 + semantic decoder
+  pretrained_checkpoint: facebook/dinov2-small
+  adaptation: semantic encoder-decoder
+  fine_output_classes: 31
+  coarse_strategy: derived_from_fine
+  visibility_classes: 14
+  resolution: [512, 896]
+  folds: [0, 1, 2, 3, 4]
+  epochs: 100
+  split_case_ratio: 7:1:2
+  oracle_prompt: false
+nnunet_v2_2d:
+  priority: additional
+  status: planned
+  architecture: nnU-Net v2 2D
+  adaptation: segmentation-only
+  fine_output_classes: 31
+  coarse_strategy: derived_from_fine
+  visibility_classes: 0
+  resolution: native_preprocessing
+  folds: [0, 1, 2, 3, 4]
+  oracle_prompt: false
+medsam_vit_b_multitask:
+  priority: additional
+  status: planned
+  architecture: MedSAM ViT-B + semantic decoder
+  pretrained_checkpoint: official MedSAM ViT-B checkpoint
+  adaptation: semantic encoder-decoder
+  fine_output_classes: 31
+  coarse_strategy: derived_from_fine
+  visibility_classes: 14
+  resolution: [512, 896]
+  folds: [0, 1, 2, 3, 4]
+  epochs: 100
+  split_case_ratio: 7:1:2
+  oracle_prompt: false
+convnextv2_tiny_multitask:
+  priority: additional
+  status: completed_5fold_test
+  architecture: ConvNeXt-V2 Tiny + multitask decoder
+  pretrained_checkpoint: convnextv2_tiny.fcmae_ft_in22k_in1k (official ConvNeXt-V2 release via timm)
+  adaptation: fine semantic decoder + 14-label visibility head
+  fine_output_classes: 31
+  coarse_strategy: derived_from_fine
+  visibility_classes: 14
+  resolution: [512, 896]
+  folds: [0, 1, 2, 3, 4]
+  epochs: 100
+  split_case_ratio: 7:1:2
+  checkpoint_selection: validation selection_score
+  physical_batch_size: 1
+  gradient_accumulation: 4
+  effective_batch_size: 4
+  gpu: RTX A5000 24GB
+  test_selection_score_mean: 0.686214523312149
+  test_selection_score_sample_sd: 0.03482953957492041
+convnextv2_base_mask2former:
+  priority: additional
+  status: running_job_136
+  completed_folds: [0, 1]
+  architecture: Mask2Former with ConvNeXt-V2 Base pixel backbone
+  pretrained_checkpoint: convnextv2_base.fcmae_ft_in22k_in1k (official ConvNeXt-V2 release via timm)
+  fine_output_classes: 31
+  coarse_strategy: derived_from_fine
+  visibility_classes: 14
+  resolution: [512, 896]
+  folds: [0, 1, 2, 3, 4]
+  epochs: 100
+  split_case_ratio: 7:1:2
+  checkpoint_selection: validation selection_score
+deeplabv3_resnet50_multitask:
+  priority: additional
+  status: completed_5fold_test
+  architecture: DeepLabV3 ResNet-50 + 14-label visibility head
+  pretrained_checkpoint: torchvision ResNet-50 ImageNet-1K
+  fine_output_classes: 31
+  coarse_strategy: derived_from_fine
+  visibility_classes: 14
+  resolution: [512, 896]
+  folds: [0, 1, 2, 3, 4]
+  epochs: 100
+  split_case_ratio: 7:1:2
+  checkpoint_selection: validation selection_score
+  test_selection_score_mean: 0.6629674712480458
+  test_selection_score_sample_sd: 0.060400837482077495
+convnextv2_tiny_mask2former:
+  priority: additional
+  status: completed_5fold_test
+  architecture: Mask2Former with ConvNeXt-V2 Tiny pixel backbone
+  pretrained_checkpoint: convnextv2_tiny.fcmae_ft_in22k_in1k (official ConvNeXt-V2 release via timm)
+  fine_output_classes: 31
+  coarse_strategy: derived_from_fine
+  visibility_classes: 14
+  resolution: [512, 896]
+  folds: [0, 1, 2, 3, 4]
+  epochs: 100
+  split_case_ratio: 7:1:2
+  checkpoint_selection: validation selection_score
+  test_selection_score_mean: 0.6901872199894004
+  test_selection_score_sample_sd: 0.03474533463621906

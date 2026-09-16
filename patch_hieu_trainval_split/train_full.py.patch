@@ -1,0 +1,33 @@
+--- full_version/task2_fine_31cls/scripts/train_full.py
++++ full_version/task2_fine_31cls/scripts/train_full.py
+@@ -15,9 +15,15 @@
+ 
+ from full_version.task2_fine_31cls.scripts.data_full import (
+     build_manifest,
++    build_trainval_manifest,
+     load_manifest,
+     records_for_manifest,
+ )
++
++_MANIFEST_BUILDERS = {
++    "full40_case_folds_v1": build_manifest,
++    "full40_case_folds_v2_trainval": build_trainval_manifest,
++}
+ from scripts.train_mask2former_improved import run_fold
+ from tiger_models.data import LabelMap
+ 
+@@ -42,11 +48,12 @@
+     args = parse_args()
+     config = yaml.safe_load(args.config.read_text())
+     manifest = load_manifest(args.split_manifest)
+-    if manifest.get("version") != "full40_case_folds_v1":
++    builder = _MANIFEST_BUILDERS.get(manifest.get("version"))
++    if builder is None:
+         raise ValueError(f"Unsupported split manifest: {manifest.get('version')}")
+     if int(manifest.get("split_seed", -1)) != int(config["split_seed"]):
+         raise ValueError("Config split_seed does not match manifest")
+-    current = build_manifest(args.data_root, int(config["split_seed"]))
++    current = builder(args.data_root, int(config["split_seed"]))
+     if current["snapshot"] != manifest.get("snapshot"):
+         raise ValueError("Current dataset snapshot does not match the immutable split manifest")
+     labelmap = LabelMap.load(args.data_root / "labelmap.csv")

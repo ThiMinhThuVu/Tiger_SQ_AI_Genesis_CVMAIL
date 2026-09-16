@@ -1,0 +1,35 @@
+--- full_version/task1_merged_16cls/scripts/train_coarse_only.py
++++ full_version/task1_merged_16cls/scripts/train_coarse_only.py
+@@ -18,7 +18,17 @@
+ ROOT = Path(__file__).resolve().parents[3]
+ sys.path.insert(0, str(ROOT))
+ 
+-from full_version.task2_fine_31cls.scripts.data_full import build_manifest, load_manifest, records_for_manifest
++from full_version.task2_fine_31cls.scripts.data_full import (
++    build_manifest,
++    build_trainval_manifest,
++    load_manifest,
++    records_for_manifest,
++)
++
++_MANIFEST_BUILDERS = {
++    "full40_case_folds_v1": build_manifest,
++    "full40_case_folds_v2_trainval": build_trainval_manifest,
++}
+ from scripts.train_mask2former import build_model, semantic_logits
+ from tiger_models.data import LabelMap
+ from tiger_models.metrics import segmentation_metrics
+@@ -83,8 +93,11 @@
+ 
+ def context(ns):
+     config = yaml.safe_load(ns.config.read_text()); manifest = load_manifest(ns.split_manifest)
+-    current = build_manifest(ns.data_root, int(config["split_seed"]))
+-    if manifest.get("version") != "full40_case_folds_v1" or current["snapshot"] != manifest.get("snapshot"):
++    builder = _MANIFEST_BUILDERS.get(manifest.get("version"))
++    if builder is None:
++        raise ValueError(f"Unsupported split manifest: {manifest.get('version')}")
++    current = builder(ns.data_root, int(config["split_seed"]))
++    if current["snapshot"] != manifest.get("snapshot"):
+         raise ValueError("Dataset does not match the frozen full40 manifest")
+     return config, manifest, LabelMap.load(ns.data_root / "labelmap.csv")
+ 

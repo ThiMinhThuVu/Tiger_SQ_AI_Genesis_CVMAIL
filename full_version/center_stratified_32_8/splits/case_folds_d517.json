@@ -1,0 +1,744 @@
+{
+  "version": "full40_center_stratified_5fold_trainval_d517_v2",
+  "split_seed": 2026,
+  "grouping_unit": "case_id",
+  "split_policy": "32 train / 8 validation; no local test",
+  "center_policy": "centers 2,3,7 in all folds; scarce centers 4,6 spread across three folds each",
+  "snapshot": {
+    "case_count": 40,
+    "frame_count": 517,
+    "image_names_sha256": "ad87801fd1135603120996c5ae55e75bc3bfb8e40ad0f5ebd2ec2f00cea0af11",
+    "fine_mask_names_sha256": "ad87801fd1135603120996c5ae55e75bc3bfb8e40ad0f5ebd2ec2f00cea0af11",
+    "coarse_mask_names_sha256": "ad87801fd1135603120996c5ae55e75bc3bfb8e40ad0f5ebd2ec2f00cea0af11",
+    "corrected_fine_mask_sha256": "e29be0a9e53a76720fceb12b752f3c590084102f019cc08eba85c418876dde39",
+    "corrected_coarse_mask_sha256": "3ccee03bdae8ec7cf9ddceb1cd27c2b06da4f089b4bbfed94af58658422add81"
+  },
+  "cases": {
+    "center_1_case_10": {
+      "case_id": "center_1_case_10",
+      "center": 1,
+      "frames": 13,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_1_case_11": {
+      "case_id": "center_1_case_11",
+      "center": 1,
+      "frames": 13,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_1_case_12": {
+      "case_id": "center_1_case_12",
+      "center": 1,
+      "frames": 13,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_1_case_13": {
+      "case_id": "center_1_case_13",
+      "center": 1,
+      "frames": 14,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_1_case_14": {
+      "case_id": "center_1_case_14",
+      "center": 1,
+      "frames": 14,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_1_case_15": {
+      "case_id": "center_1_case_15",
+      "center": 1,
+      "frames": 13,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_1_case_16": {
+      "case_id": "center_1_case_16",
+      "center": 1,
+      "frames": 14,
+      "width": 1280,
+      "height": 720,
+      "resolution": "1280x720"
+    },
+    "center_1_case_17": {
+      "case_id": "center_1_case_17",
+      "center": 1,
+      "frames": 14,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_1_case_2": {
+      "case_id": "center_1_case_2",
+      "center": 1,
+      "frames": 14,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_1_case_3": {
+      "case_id": "center_1_case_3",
+      "center": 1,
+      "frames": 13,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_1_case_4": {
+      "case_id": "center_1_case_4",
+      "center": 1,
+      "frames": 14,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_1_case_5": {
+      "case_id": "center_1_case_5",
+      "center": 1,
+      "frames": 10,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_1_case_6": {
+      "case_id": "center_1_case_6",
+      "center": 1,
+      "frames": 14,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_1_case_7": {
+      "case_id": "center_1_case_7",
+      "center": 1,
+      "frames": 14,
+      "width": 1280,
+      "height": 720,
+      "resolution": "1280x720"
+    },
+    "center_1_case_8": {
+      "case_id": "center_1_case_8",
+      "center": 1,
+      "frames": 14,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_1_case_9": {
+      "case_id": "center_1_case_9",
+      "center": 1,
+      "frames": 14,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_2_case_2": {
+      "case_id": "center_2_case_2",
+      "center": 2,
+      "frames": 13,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_2_case_3": {
+      "case_id": "center_2_case_3",
+      "center": 2,
+      "frames": 11,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_2_case_4": {
+      "case_id": "center_2_case_4",
+      "center": 2,
+      "frames": 12,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_2_case_5": {
+      "case_id": "center_2_case_5",
+      "center": 2,
+      "frames": 13,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_2_case_6": {
+      "case_id": "center_2_case_6",
+      "center": 2,
+      "frames": 12,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_2_case_7": {
+      "case_id": "center_2_case_7",
+      "center": 2,
+      "frames": 12,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_2_case_8": {
+      "case_id": "center_2_case_8",
+      "center": 2,
+      "frames": 12,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_2_case_9": {
+      "case_id": "center_2_case_9",
+      "center": 2,
+      "frames": 11,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_3_case_2": {
+      "case_id": "center_3_case_2",
+      "center": 3,
+      "frames": 13,
+      "width": 3840,
+      "height": 2160,
+      "resolution": "3840x2160"
+    },
+    "center_3_case_3": {
+      "case_id": "center_3_case_3",
+      "center": 3,
+      "frames": 13,
+      "width": 3840,
+      "height": 2160,
+      "resolution": "3840x2160"
+    },
+    "center_3_case_4": {
+      "case_id": "center_3_case_4",
+      "center": 3,
+      "frames": 12,
+      "width": 3840,
+      "height": 2160,
+      "resolution": "3840x2160"
+    },
+    "center_3_case_5": {
+      "case_id": "center_3_case_5",
+      "center": 3,
+      "frames": 14,
+      "width": 3840,
+      "height": 2160,
+      "resolution": "3840x2160"
+    },
+    "center_3_case_6": {
+      "case_id": "center_3_case_6",
+      "center": 3,
+      "frames": 13,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_4_case_2": {
+      "case_id": "center_4_case_2",
+      "center": 4,
+      "frames": 11,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_4_case_3": {
+      "case_id": "center_4_case_3",
+      "center": 4,
+      "frames": 13,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_4_case_4": {
+      "case_id": "center_4_case_4",
+      "center": 4,
+      "frames": 14,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_6_case_2": {
+      "case_id": "center_6_case_2",
+      "center": 6,
+      "frames": 14,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_6_case_3": {
+      "case_id": "center_6_case_3",
+      "center": 6,
+      "frames": 14,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_6_case_4": {
+      "case_id": "center_6_case_4",
+      "center": 6,
+      "frames": 12,
+      "width": 1920,
+      "height": 1080,
+      "resolution": "1920x1080"
+    },
+    "center_7_case_2": {
+      "case_id": "center_7_case_2",
+      "center": 7,
+      "frames": 13,
+      "width": 3840,
+      "height": 2160,
+      "resolution": "3840x2160"
+    },
+    "center_7_case_3": {
+      "case_id": "center_7_case_3",
+      "center": 7,
+      "frames": 13,
+      "width": 3840,
+      "height": 2160,
+      "resolution": "3840x2160"
+    },
+    "center_7_case_4": {
+      "case_id": "center_7_case_4",
+      "center": 7,
+      "frames": 13,
+      "width": 3840,
+      "height": 2160,
+      "resolution": "3840x2160"
+    },
+    "center_7_case_5": {
+      "case_id": "center_7_case_5",
+      "center": 7,
+      "frames": 14,
+      "width": 3840,
+      "height": 2160,
+      "resolution": "3840x2160"
+    },
+    "center_7_case_6": {
+      "case_id": "center_7_case_6",
+      "center": 7,
+      "frames": 10,
+      "width": 1280,
+      "height": 720,
+      "resolution": "1280x720"
+    }
+  },
+  "folds": {
+    "0": {
+      "train_cases": [
+        "center_1_case_10",
+        "center_1_case_11",
+        "center_1_case_12",
+        "center_1_case_14",
+        "center_1_case_15",
+        "center_1_case_16",
+        "center_1_case_17",
+        "center_1_case_2",
+        "center_1_case_3",
+        "center_1_case_4",
+        "center_1_case_5",
+        "center_1_case_7",
+        "center_1_case_9",
+        "center_2_case_2",
+        "center_2_case_3",
+        "center_2_case_4",
+        "center_2_case_5",
+        "center_2_case_6",
+        "center_2_case_8",
+        "center_2_case_9",
+        "center_3_case_3",
+        "center_3_case_4",
+        "center_3_case_5",
+        "center_3_case_6",
+        "center_4_case_3",
+        "center_4_case_4",
+        "center_6_case_3",
+        "center_6_case_4",
+        "center_7_case_2",
+        "center_7_case_3",
+        "center_7_case_4",
+        "center_7_case_6"
+      ],
+      "validation_cases": [
+        "center_1_case_13",
+        "center_1_case_6",
+        "center_1_case_8",
+        "center_2_case_7",
+        "center_3_case_2",
+        "center_4_case_2",
+        "center_6_case_2",
+        "center_7_case_5"
+      ],
+      "summary": {
+        "train": {
+          "cases": 32,
+          "frames": 411,
+          "centers": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            7
+          ],
+          "resolutions": [
+            "1280x720",
+            "1920x1080",
+            "3840x2160"
+          ]
+        },
+        "validation": {
+          "cases": 8,
+          "frames": 106,
+          "centers": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            7
+          ],
+          "resolutions": [
+            "1920x1080",
+            "3840x2160"
+          ]
+        }
+      }
+    },
+    "1": {
+      "train_cases": [
+        "center_1_case_10",
+        "center_1_case_11",
+        "center_1_case_12",
+        "center_1_case_13",
+        "center_1_case_16",
+        "center_1_case_17",
+        "center_1_case_3",
+        "center_1_case_4",
+        "center_1_case_5",
+        "center_1_case_6",
+        "center_1_case_7",
+        "center_1_case_8",
+        "center_1_case_9",
+        "center_2_case_2",
+        "center_2_case_3",
+        "center_2_case_5",
+        "center_2_case_7",
+        "center_2_case_8",
+        "center_2_case_9",
+        "center_3_case_2",
+        "center_3_case_4",
+        "center_3_case_5",
+        "center_3_case_6",
+        "center_4_case_2",
+        "center_4_case_4",
+        "center_6_case_2",
+        "center_6_case_3",
+        "center_6_case_4",
+        "center_7_case_2",
+        "center_7_case_3",
+        "center_7_case_4",
+        "center_7_case_5"
+      ],
+      "validation_cases": [
+        "center_1_case_14",
+        "center_1_case_15",
+        "center_1_case_2",
+        "center_2_case_4",
+        "center_2_case_6",
+        "center_3_case_3",
+        "center_4_case_3",
+        "center_7_case_6"
+      ],
+      "summary": {
+        "train": {
+          "cases": 32,
+          "frames": 416,
+          "centers": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            7
+          ],
+          "resolutions": [
+            "1280x720",
+            "1920x1080",
+            "3840x2160"
+          ]
+        },
+        "validation": {
+          "cases": 8,
+          "frames": 101,
+          "centers": [
+            1,
+            2,
+            3,
+            4,
+            7
+          ],
+          "resolutions": [
+            "1280x720",
+            "1920x1080",
+            "3840x2160"
+          ]
+        }
+      }
+    },
+    "2": {
+      "train_cases": [
+        "center_1_case_10",
+        "center_1_case_12",
+        "center_1_case_13",
+        "center_1_case_14",
+        "center_1_case_15",
+        "center_1_case_2",
+        "center_1_case_3",
+        "center_1_case_4",
+        "center_1_case_6",
+        "center_1_case_7",
+        "center_1_case_8",
+        "center_1_case_9",
+        "center_2_case_2",
+        "center_2_case_3",
+        "center_2_case_4",
+        "center_2_case_6",
+        "center_2_case_7",
+        "center_2_case_8",
+        "center_2_case_9",
+        "center_3_case_2",
+        "center_3_case_3",
+        "center_3_case_4",
+        "center_3_case_6",
+        "center_4_case_2",
+        "center_4_case_3",
+        "center_4_case_4",
+        "center_6_case_2",
+        "center_6_case_4",
+        "center_7_case_2",
+        "center_7_case_3",
+        "center_7_case_5",
+        "center_7_case_6"
+      ],
+      "validation_cases": [
+        "center_1_case_11",
+        "center_1_case_16",
+        "center_1_case_17",
+        "center_1_case_5",
+        "center_2_case_5",
+        "center_3_case_5",
+        "center_6_case_3",
+        "center_7_case_4"
+      ],
+      "summary": {
+        "train": {
+          "cases": 32,
+          "frames": 412,
+          "centers": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            7
+          ],
+          "resolutions": [
+            "1280x720",
+            "1920x1080",
+            "3840x2160"
+          ]
+        },
+        "validation": {
+          "cases": 8,
+          "frames": 105,
+          "centers": [
+            1,
+            2,
+            3,
+            6,
+            7
+          ],
+          "resolutions": [
+            "1280x720",
+            "1920x1080",
+            "3840x2160"
+          ]
+        }
+      }
+    },
+    "3": {
+      "train_cases": [
+        "center_1_case_11",
+        "center_1_case_12",
+        "center_1_case_13",
+        "center_1_case_14",
+        "center_1_case_15",
+        "center_1_case_16",
+        "center_1_case_17",
+        "center_1_case_2",
+        "center_1_case_4",
+        "center_1_case_5",
+        "center_1_case_6",
+        "center_1_case_7",
+        "center_1_case_8",
+        "center_2_case_2",
+        "center_2_case_4",
+        "center_2_case_5",
+        "center_2_case_6",
+        "center_2_case_7",
+        "center_2_case_9",
+        "center_3_case_2",
+        "center_3_case_3",
+        "center_3_case_4",
+        "center_3_case_5",
+        "center_4_case_2",
+        "center_4_case_3",
+        "center_4_case_4",
+        "center_6_case_2",
+        "center_6_case_3",
+        "center_7_case_2",
+        "center_7_case_4",
+        "center_7_case_5",
+        "center_7_case_6"
+      ],
+      "validation_cases": [
+        "center_1_case_10",
+        "center_1_case_3",
+        "center_1_case_9",
+        "center_2_case_3",
+        "center_2_case_8",
+        "center_3_case_6",
+        "center_6_case_4",
+        "center_7_case_3"
+      ],
+      "summary": {
+        "train": {
+          "cases": 32,
+          "frames": 416,
+          "centers": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            7
+          ],
+          "resolutions": [
+            "1280x720",
+            "1920x1080",
+            "3840x2160"
+          ]
+        },
+        "validation": {
+          "cases": 8,
+          "frames": 101,
+          "centers": [
+            1,
+            2,
+            3,
+            6,
+            7
+          ],
+          "resolutions": [
+            "1920x1080",
+            "3840x2160"
+          ]
+        }
+      }
+    },
+    "4": {
+      "train_cases": [
+        "center_1_case_10",
+        "center_1_case_11",
+        "center_1_case_13",
+        "center_1_case_14",
+        "center_1_case_15",
+        "center_1_case_16",
+        "center_1_case_17",
+        "center_1_case_2",
+        "center_1_case_3",
+        "center_1_case_5",
+        "center_1_case_6",
+        "center_1_case_8",
+        "center_1_case_9",
+        "center_2_case_3",
+        "center_2_case_4",
+        "center_2_case_5",
+        "center_2_case_6",
+        "center_2_case_7",
+        "center_2_case_8",
+        "center_3_case_2",
+        "center_3_case_3",
+        "center_3_case_5",
+        "center_3_case_6",
+        "center_4_case_2",
+        "center_4_case_3",
+        "center_6_case_2",
+        "center_6_case_3",
+        "center_6_case_4",
+        "center_7_case_3",
+        "center_7_case_4",
+        "center_7_case_5",
+        "center_7_case_6"
+      ],
+      "validation_cases": [
+        "center_1_case_12",
+        "center_1_case_4",
+        "center_1_case_7",
+        "center_2_case_2",
+        "center_2_case_9",
+        "center_3_case_4",
+        "center_4_case_4",
+        "center_7_case_2"
+      ],
+      "summary": {
+        "train": {
+          "cases": 32,
+          "frames": 413,
+          "centers": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            7
+          ],
+          "resolutions": [
+            "1280x720",
+            "1920x1080",
+            "3840x2160"
+          ]
+        },
+        "validation": {
+          "cases": 8,
+          "frames": 104,
+          "centers": [
+            1,
+            2,
+            3,
+            4,
+            7
+          ],
+          "resolutions": [
+            "1280x720",
+            "1920x1080",
+            "3840x2160"
+          ]
+        }
+      }
+    }
+  }
+}

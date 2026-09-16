@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0.0",
+  "knowledge_version": "clinical_station_anatomy_seed_v1",
+  "created_utc": "2026-08-08",
+  "scope": "TIGER SQ-AI thoracic single-frame segmentation",
+  "semantics": {
+    "boundary_structure_of": "The anatomy is named by the protocol as a boundary or topographic structure for the station. It is not a claim that the anatomy must be segmented in every frame.",
+    "co_visible_with": "An empirical association derived from a frame in which both the station and anatomy are annotated visible. It is not a containment or causal relation.",
+    "possible_context_of": "The class may occur across stations and cannot be used as a station-specific hard constraint.",
+    "forbidden_in": "Reserved for a clinically adjudicated impossibility. No forbidden_in edges are defined in seed v1."
+  },
+  "sources": [
+    {
+      "source_id": "station_definition_doc",
+      "title": "Abdominal and thoracic lymph node station definitions",
+      "url": "https://docs.google.com/document/d/1GfBsblzTvPRpX4AOHwSeO7a2gFnCpFsw/edit",
+      "accessed_utc": "2026-08-08"
+    },
+    {
+      "source_id": "annotation_protocol_doc",
+      "title": "TIGER SQ-AI Annotation Protocol (Thoracic Lymphadenectomy)",
+      "url": "https://docs.google.com/document/d/1-WxFyD1sHrlrqyQ1Yq4-02ngZwgxyhKrbHDvY_yxM3c/edit",
+      "accessed_utc": "2026-08-08"
+    },
+    {
+      "source_id": "project_owner_adjudication_20260808",
+      "title": "Project-owner correction of pulmonary-ligament laterality",
+      "accessed_utc": "2026-08-08",
+      "note": "The project owner confirmed LIPL -> 13L and RIPL -> 13R. The reversed table entries in the annotation protocol are treated as documentation errors."
+    }
+  ],
+  "stations": [
+    {"station_id": "6L", "name": "Left upper paratracheal"},
+    {"station_id": "6R", "name": "Right upper paratracheal"},
+    {"station_id": "7L", "name": "Left lower paratracheal"},
+    {"station_id": "7R", "name": "Right lower paratracheal"},
+    {"station_id": "8", "name": "Aortopulmonary window"},
+    {"station_id": "9", "name": "Subcarinal"},
+    {"station_id": "10L", "name": "Left upper mediastinal paraesophageal"},
+    {"station_id": "10R", "name": "Right upper mediastinal paraesophageal"},
+    {"station_id": "11L", "name": "Left middle mediastinal paraesophageal"},
+    {"station_id": "11R", "name": "Right middle mediastinal paraesophageal"},
+    {"station_id": "12L", "name": "Left lower mediastinal paraesophageal"},
+    {"station_id": "12R", "name": "Right lower mediastinal paraesophageal"},
+    {"station_id": "13L", "name": "Left pulmonary ligament"},
+    {"station_id": "13R", "name": "Right pulmonary ligament"}
+  ],
+  "edge_defaults": {
+    "review_status": "protocol_seed_pending_clinical_review",
+    "constraint_type": "soft",
+    "warning_eligible": false,
+    "correction_eligible": false,
+    "absence_is_violation": false
+  },
+  "station_anatomy_edges": [
+    {"station": "6L", "anatomy": "Trachea", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+    {"station": "6L", "anatomy": "Esophagus", "relation": "boundary_structure_of", "sources": ["annotation_protocol_doc"]},
+    {"station": "6L", "anatomy": "Aorta", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+    {"station": "6L", "anatomy": "Left subclavian artery", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+    {"station": "6L", "anatomy": "Left recurrent laryngeal nerve", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+
+    {"station": "6R", "anatomy": "Trachea", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+    {"station": "6R", "anatomy": "Esophagus", "relation": "boundary_structure_of", "sources": ["annotation_protocol_doc"]},
+    {"station": "6R", "anatomy": "Right subclavian artery", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+    {"station": "6R", "anatomy": "Right vagal nerve", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+    {"station": "6R", "anatomy": "Right recurrent laryngeal nerve", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+
+    {"station": "7L", "anatomy": "Trachea", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+    {"station": "7L", "anatomy": "Left main bronchus", "relation": "boundary_structure_of", "sources": ["annotation_protocol_doc"]},
+    {"station": "7L", "anatomy": "Aorta", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+    {"station": "7L", "anatomy": "Azygos vein", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"], "note": "Retained as protocol-defined topography; laterality/topography requires clinical review before operational use."},
+    {"station": "7L", "anatomy": "Right bronchial artery", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+    {"station": "7L", "anatomy": "Left recurrent laryngeal nerve", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+
+    {"station": "7R", "anatomy": "Trachea", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+    {"station": "7R", "anatomy": "Right main bronchus", "relation": "boundary_structure_of", "sources": ["annotation_protocol_doc"]},
+    {"station": "7R", "anatomy": "Superior caval vein", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+    {"station": "7R", "anatomy": "Azygos vein", "relation": "boundary_structure_of", "sources": ["station_definition_doc"]},
+    {"station": "7R", "anatomy": "Right vagal nerve", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+
+    {"station": "8", "anatomy": "Aorta", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+    {"station": "8", "anatomy": "Left main bronchus", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+    {"station": "8", "anatomy": "Pulmonary artery", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+
+    {"station": "9", "anatomy": "Trachea", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+    {"station": "9", "anatomy": "Right main bronchus", "relation": "boundary_structure_of", "sources": ["annotation_protocol_doc"]},
+    {"station": "9", "anatomy": "Left main bronchus", "relation": "boundary_structure_of", "sources": ["annotation_protocol_doc"]},
+
+    {"station": "10L", "anatomy": "Trachea", "relation": "boundary_structure_of", "sources": ["annotation_protocol_doc"]},
+    {"station": "10L", "anatomy": "Right main bronchus", "relation": "boundary_structure_of", "sources": ["annotation_protocol_doc"]},
+    {"station": "10L", "anatomy": "Left main bronchus", "relation": "boundary_structure_of", "sources": ["annotation_protocol_doc"]},
+    {"station": "10L", "anatomy": "Esophagus", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+
+    {"station": "10R", "anatomy": "Trachea", "relation": "boundary_structure_of", "sources": ["annotation_protocol_doc"]},
+    {"station": "10R", "anatomy": "Right main bronchus", "relation": "boundary_structure_of", "sources": ["annotation_protocol_doc"]},
+    {"station": "10R", "anatomy": "Left main bronchus", "relation": "boundary_structure_of", "sources": ["annotation_protocol_doc"]},
+    {"station": "10R", "anatomy": "Esophagus", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+
+    {"station": "11L", "anatomy": "Right main bronchus", "relation": "boundary_structure_of", "sources": ["annotation_protocol_doc"]},
+    {"station": "11L", "anatomy": "Left main bronchus", "relation": "boundary_structure_of", "sources": ["annotation_protocol_doc"]},
+    {"station": "11L", "anatomy": "Esophagus", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+    {"station": "11L", "anatomy": "Inferior pulmonary vein", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+
+    {"station": "11R", "anatomy": "Right main bronchus", "relation": "boundary_structure_of", "sources": ["annotation_protocol_doc"]},
+    {"station": "11R", "anatomy": "Left main bronchus", "relation": "boundary_structure_of", "sources": ["annotation_protocol_doc"]},
+    {"station": "11R", "anatomy": "Esophagus", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+    {"station": "11R", "anatomy": "Inferior pulmonary vein", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+
+    {"station": "12L", "anatomy": "Esophagus", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+    {"station": "12L", "anatomy": "Inferior pulmonary vein", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+    {"station": "12R", "anatomy": "Esophagus", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+    {"station": "12R", "anatomy": "Inferior pulmonary vein", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "annotation_protocol_doc"]},
+
+    {"station": "13L", "anatomy": "Left inferior pulmonary ligament", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "project_owner_adjudication_20260808"], "review_status": "resolved_by_project_owner", "note": "Corrected from the reversed annotation-protocol table entry."},
+    {"station": "13R", "anatomy": "Right inferior pulmonary ligament", "relation": "boundary_structure_of", "sources": ["station_definition_doc", "project_owner_adjudication_20260808"], "review_status": "resolved_by_project_owner", "note": "Corrected from the reversed annotation-protocol table entry."}
+  ],
+  "station_independent_context_classes": [
+    "Instrument",
+    "Other",
+    "Pleura",
+    "Pericardium",
+    "Lung",
+    "Lymph node",
+    "Fatty tissue",
+    "Fatty tissue esophagus",
+    "Pool of blood",
+    "Resection area",
+    "Gastric conduit",
+    "Omentum",
+    "Thoracic duct"
+  ],
+  "known_document_conflicts": [
+    {
+      "conflict_id": "pulmonary_ligament_laterality",
+      "annotation_protocol_text": "LIPL -> 13R and RIPL -> 13L",
+      "resolved_mapping": "LIPL -> 13L and RIPL -> 13R",
+      "status": "resolved_by_project_owner",
+      "resolution_source": "project_owner_adjudication_20260808"
+    }
+  ]
+}

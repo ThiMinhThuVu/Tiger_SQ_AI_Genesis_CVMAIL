@@ -1,0 +1,55 @@
+experiment_id: p2_hr640x1120_seed2026
+model_type: mask2former_improved
+backbone: swin_small
+pretrained_checkpoint: facebook/mask2former-swin-small-coco-panoptic
+num_labels: 31
+height: 640
+width: 1120
+n_folds: 5
+epochs: 100
+smoke_epochs: 3
+seed: 2026
+split_seed: 2026
+batch_size: 2
+gradient_accumulation: 2
+num_workers: 4
+learning_rate: 0.0001
+weight_decay: 0.0001
+early_stopping_patience: 15
+early_stopping_min_delta: 0.0001
+selection_metric: task1_score
+task1_only: true
+
+matching_method: asymmetric_partial_sinkhorn
+ot_epsilon: 0.5
+ot_iterations: 500
+ot_convergence_tolerance: 0.0000001
+ot_sinkhorn_check_interval: 10
+ot_balance_iterations: 500
+ot_pair_cost_risk_exponent: 0.0
+ot_mass_mode: fixed
+ot_target_mass_alpha: 0.5
+ot_target_mass_max: 2.0
+ot_dustbin_fp_weight: 0.1
+ot_dustbin_cost: 0.0
+ot_context_fp_strength: 0.0
+
+station_context: false
+context_loss_weight: 0.0
+context_prior_smoothing: 1.0
+
+coarse_loss_weight: 0.0
+hierarchy_loss_weight: 0.0
+presence_loss_weight: 0.0
+presence_pos_weight_max: 8.0
+presence_epsilon: 0.25
+presence_gamma: 1.0
+coarse_fusion_beta: 0.0
+clinical_weighting: true
+direct_coarse_head: false
+hierarchical_consistency: false
+presence_head: false
+confusion_prototype: false
+class_aware_boundary: false
+research_stage: p2_high_resolution_pilot_folds_0_1_4
+

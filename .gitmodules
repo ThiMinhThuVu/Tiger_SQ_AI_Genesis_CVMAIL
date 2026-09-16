@@ -1,0 +1,6 @@
+[submodule "external/sam2"]
+	path = external/sam2
+	url = https://github.com/facebookresearch/sam2.git
+[submodule "external/tigersqai_evaluation"]
+	path = external/tigersqai_evaluation
+	url = https://gitlab.com/nct_tso_public/challenges/miccai2026/tigersqai_challenge.git

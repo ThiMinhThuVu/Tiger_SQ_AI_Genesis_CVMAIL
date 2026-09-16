@@ -1,0 +1,3 @@
+# Installed separately with --no-deps because torch 2.7.1+cu128 is already in
+# the base image and must not be downloaded into the vendor layer again.
+torchvision==0.22.1+cu128

@@ -1,0 +1,17 @@
+experiment_id: convnextv2_tiny_mask2former
+model_name: convnextv2_tiny.fcmae_ft_in22k_in1k
+pretrained: true
+num_labels: 31
+visibility_classes: 14
+height: 512
+width: 896
+epochs: 100
+seed: 2026
+batch_size: 1
+gradient_accumulation: 4
+num_workers: 4
+learning_rate: 0.0001
+encoder_learning_rate: 0.00003
+weight_decay: 0.0001
+decoder_layers: 6
+num_queries: 100

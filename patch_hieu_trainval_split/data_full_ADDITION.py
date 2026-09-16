@@ -1,0 +1,61 @@
+"""Append this function to full_version/task2_fine_31cls/scripts/data_full.py,
+placed right before `def load_manifest(...)`. It only *adds* a function; it
+does not modify build_manifest, records_for_manifest, or anything else, so
+the existing v1 (28/4/8) pipeline is untouched and still works.
+"""
+
+
+def build_trainval_manifest(data_root: str | Path, split_seed: int = 2026) -> dict[str, Any]:
+    """Two-way 32/8 case split: no held-out local test tier.
+
+    The challenge's hidden test is the only true test set, so a local
+    held-out test tier only wastes training data. This reuses the reviewed
+    TEST_CASES_SEED_2026 case groups as the validation tier for each fold
+    (identical case-to-fold assignment as the v1 manifest's outer test
+    partition, so every case still validates exactly once across the five
+    folds). The v1 manifest's separate 4-case validation tier is dropped;
+    those cases move into train instead, raising each fold's training pool
+    from 28 to 32 cases.
+    """
+    if split_seed != 2026:
+        raise ValueError("Only the reviewed immutable split_seed=2026 is defined")
+    cases, snapshot = discover_cases(data_root)
+    all_cases = set(cases)
+    expected = {case for fold in TEST_CASES_SEED_2026 for case in fold}
+    if all_cases != expected:
+        raise ValueError(
+            f"Dataset cases differ from reviewed split: missing={sorted(expected - all_cases)}, "
+            f"unexpected={sorted(all_cases - expected)}"
+        )
+
+    folds: dict[str, Any] = {}
+    validation_occurrences: list[str] = []
+    for fold, validation_tuple in enumerate(TEST_CASES_SEED_2026):
+        validation_cases = sorted(validation_tuple)
+        train_cases = sorted(all_cases - set(validation_cases))
+        if (len(train_cases), len(validation_cases)) != (32, 8):
+            raise ValueError(f"Fold {fold}: expected 32/8 cases")
+        if len(_split_summary(validation_cases, cases)["centers"]) < 4:
+            raise ValueError(f"Fold {fold}: validation must cover at least four centers")
+        validation_occurrences.extend(validation_cases)
+        folds[str(fold)] = {
+            "train_cases": train_cases,
+            "validation_cases": validation_cases,
+            "summary": {
+                "train": _split_summary(train_cases, cases),
+                "validation": _split_summary(validation_cases, cases),
+            },
+        }
+    if len(set(validation_occurrences)) != 40 or len(validation_occurrences) != 40:
+        raise ValueError("Each case must occur in validation exactly once")
+
+    return {
+        "version": "full40_case_folds_v2_trainval",
+        "split_seed": split_seed,
+        "grouping_unit": "case_id",
+        "derived_from": "full40_case_folds_v1 outer-test partition (TEST_CASES_SEED_2026)",
+        "snapshot": snapshot,
+        "cases": {case_id: asdict(info) | {"resolution": info.resolution}
+                  for case_id, info in sorted(cases.items())},
+        "folds": folds,
+    }

@@ -1,0 +1,25 @@
+experiment_id: coarse_only_swin_small_trainval32_8_seed2026
+model_type: mask2former_coarse_only
+backbone: swin_small
+pretrained_checkpoint: facebook/mask2former-swin-small-coco-panoptic
+num_labels: 16
+height: 512
+width: 896
+epochs: 100
+smoke_epochs: 2
+seed: 2026
+split_seed: 2026
+batch_size: 4
+gradient_accumulation: 1
+num_workers: 4
+learning_rate: 0.0001
+weight_decay: 0.0001
+early_stopping_patience: 15
+early_stopping_min_delta: 0.0001
+selection_metric: merged_task_score
+input_target: data/masks_coarse
+uses_task2_checkpoint: false
+uses_fine_to_coarse_prediction_mapping: false
+# Identical hyperparameters to coarse_only_swin_small_seed2026.yaml. Only
+# the split manifest changes: pair with case_folds_v2_trainval.json
+# (32 train / 8 val, no held-out local test tier).

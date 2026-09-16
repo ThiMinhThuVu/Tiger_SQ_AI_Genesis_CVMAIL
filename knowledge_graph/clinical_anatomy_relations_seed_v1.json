@@ -1,0 +1,240 @@
+{
+  "schema_version": "1.0.0",
+  "knowledge_version": "clinical_anatomy_relations_seed_v1",
+  "created_utc": "2026-08-08",
+  "scope": "Candidate clinical anatomy relations for single-frame TIGER SQ-AI review",
+  "defaults": {
+    "review_status": "pending_clinical_review",
+    "constraint_type": "soft",
+    "warning_eligible": false,
+    "correction_eligible": false,
+    "absence_is_violation": false
+  },
+  "sources": [
+    {
+      "source_id": "annotation_protocol_doc",
+      "url": "https://docs.google.com/document/d/1-WxFyD1sHrlrqyQ1Yq4-02ngZwgxyhKrbHDvY_yxM3c/edit",
+      "accessed_utc": "2026-08-08"
+    },
+    {
+      "source_id": "station_definition_doc",
+      "url": "https://docs.google.com/document/d/1GfBsblzTvPRpX4AOHwSeO7a2gFnCpFsw/edit",
+      "accessed_utc": "2026-08-08"
+    }
+  ],
+  "relations": [
+    {
+      "rule_id": "AA-001",
+      "subject": "Trachea",
+      "relation": "branches_to",
+      "object": "Right main bronchus",
+      "stations": ["7R", "9", "10R", "11R"],
+      "clinical_scope": "global_structural",
+      "single_frame_observability": "partial",
+      "operational_candidate": "connectivity_or_near",
+      "sources": ["annotation_protocol_doc"]
+    },
+    {
+      "rule_id": "AA-002",
+      "subject": "Trachea",
+      "relation": "branches_to",
+      "object": "Left main bronchus",
+      "stations": ["7L", "8", "9", "10L", "11L"],
+      "clinical_scope": "global_structural",
+      "single_frame_observability": "partial",
+      "operational_candidate": "connectivity_or_near",
+      "sources": ["annotation_protocol_doc"]
+    },
+    {
+      "rule_id": "AA-003",
+      "subject": "Trachea",
+      "relation": "anterior_to",
+      "object": "Esophagus",
+      "stations": ["6L", "6R", "10L", "10R"],
+      "clinical_scope": "global_anatomical",
+      "single_frame_observability": "view_dependent",
+      "operational_candidate": "documentation_only_until_view_calibrated",
+      "direction_frame": "anatomical_3d",
+      "sources": ["annotation_protocol_doc"]
+    },
+    {
+      "rule_id": "AA-004",
+      "subject": "Left main bronchus",
+      "relation": "passes_under_or_near",
+      "object": "Aorta",
+      "stations": ["7L", "8"],
+      "clinical_scope": "station_conditioned",
+      "single_frame_observability": "partial",
+      "operational_candidate": "near",
+      "sources": ["annotation_protocol_doc", "station_definition_doc"]
+    },
+    {
+      "rule_id": "AA-005",
+      "subject": "Left main bronchus",
+      "relation": "near",
+      "object": "Pulmonary artery",
+      "stations": ["8"],
+      "clinical_scope": "station_conditioned",
+      "single_frame_observability": "yes",
+      "operational_candidate": "near",
+      "sources": ["annotation_protocol_doc", "station_definition_doc"]
+    },
+    {
+      "rule_id": "AA-006",
+      "subject": "Right main bronchus",
+      "relation": "near",
+      "object": "Pulmonary artery",
+      "stations": ["7R", "9"],
+      "clinical_scope": "global_anatomical",
+      "single_frame_observability": "partial",
+      "operational_candidate": "near",
+      "sources": ["annotation_protocol_doc"]
+    },
+    {
+      "rule_id": "AA-007",
+      "subject": "Azygos vein",
+      "relation": "drains_into",
+      "object": "Superior caval vein",
+      "stations": ["7R"],
+      "clinical_scope": "global_structural",
+      "single_frame_observability": "partial_after_clipping",
+      "operational_candidate": "documentation_or_near",
+      "sources": ["annotation_protocol_doc", "station_definition_doc"]
+    },
+    {
+      "rule_id": "AA-008",
+      "subject": "Right recurrent laryngeal nerve",
+      "relation": "hooks_around_or_near",
+      "object": "Right subclavian artery",
+      "stations": ["6R"],
+      "clinical_scope": "station_conditioned",
+      "single_frame_observability": "partial",
+      "operational_candidate": "near",
+      "sources": ["annotation_protocol_doc", "station_definition_doc"]
+    },
+    {
+      "rule_id": "AA-009",
+      "subject": "Left recurrent laryngeal nerve",
+      "relation": "hooks_around_or_near",
+      "object": "Aorta",
+      "stations": ["6L", "7L"],
+      "clinical_scope": "station_conditioned",
+      "single_frame_observability": "partial",
+      "operational_candidate": "near",
+      "sources": ["annotation_protocol_doc", "station_definition_doc"]
+    },
+    {
+      "rule_id": "AA-010",
+      "subject": "Right vagal nerve",
+      "relation": "posterior_to_or_near",
+      "object": "Right main bronchus",
+      "stations": ["6R", "7R"],
+      "clinical_scope": "global_anatomical",
+      "single_frame_observability": "view_dependent",
+      "operational_candidate": "near_only_until_view_calibrated",
+      "direction_frame": "anatomical_3d",
+      "sources": ["annotation_protocol_doc"]
+    },
+    {
+      "rule_id": "AA-011",
+      "subject": "Inferior pulmonary vein",
+      "relation": "superior_to_or_near",
+      "object": "Left inferior pulmonary ligament",
+      "stations": ["11L", "12L", "13L"],
+      "clinical_scope": "station_conditioned",
+      "single_frame_observability": "view_dependent",
+      "operational_candidate": "near_first",
+      "direction_frame": "anatomical_3d",
+      "sources": ["annotation_protocol_doc", "station_definition_doc"]
+    },
+    {
+      "rule_id": "AA-012",
+      "subject": "Inferior pulmonary vein",
+      "relation": "superior_to_or_near",
+      "object": "Right inferior pulmonary ligament",
+      "stations": ["11R", "12R", "13R"],
+      "clinical_scope": "station_conditioned",
+      "single_frame_observability": "view_dependent",
+      "operational_candidate": "near_first",
+      "direction_frame": "anatomical_3d",
+      "sources": ["annotation_protocol_doc", "station_definition_doc"]
+    },
+    {
+      "rule_id": "AA-013",
+      "subject": "Left inferior pulmonary ligament",
+      "relation": "adjacent_to",
+      "object": "Pleura",
+      "stations": ["13L"],
+      "clinical_scope": "station_conditioned",
+      "single_frame_observability": "yes",
+      "operational_candidate": "near_or_touch",
+      "sources": ["annotation_protocol_doc"]
+    },
+    {
+      "rule_id": "AA-014",
+      "subject": "Right inferior pulmonary ligament",
+      "relation": "adjacent_to",
+      "object": "Pleura",
+      "stations": ["13R"],
+      "clinical_scope": "station_conditioned",
+      "single_frame_observability": "yes",
+      "operational_candidate": "near_or_touch",
+      "sources": ["annotation_protocol_doc"]
+    },
+    {
+      "rule_id": "AA-015",
+      "subject": "Left inferior pulmonary ligament",
+      "relation": "near",
+      "object": "Pericardium",
+      "stations": ["13L"],
+      "clinical_scope": "station_conditioned",
+      "single_frame_observability": "yes",
+      "operational_candidate": "near",
+      "sources": ["annotation_protocol_doc"]
+    },
+    {
+      "rule_id": "AA-016",
+      "subject": "Right inferior pulmonary ligament",
+      "relation": "near",
+      "object": "Pericardium",
+      "stations": ["13R"],
+      "clinical_scope": "station_conditioned",
+      "single_frame_observability": "yes",
+      "operational_candidate": "near",
+      "sources": ["annotation_protocol_doc"]
+    },
+    {
+      "rule_id": "AA-017",
+      "subject": "Thoracic duct",
+      "relation": "runs_along_or_near",
+      "object": "Esophagus",
+      "stations": ["10L", "10R", "11L", "11R", "12L", "12R"],
+      "clinical_scope": "global_anatomical",
+      "single_frame_observability": "partial",
+      "operational_candidate": "near",
+      "sources": ["annotation_protocol_doc"]
+    },
+    {
+      "rule_id": "AA-018",
+      "subject": "Fatty tissue esophagus",
+      "relation": "attached_to_or_near",
+      "object": "Esophagus",
+      "stations": ["10L", "10R", "11L", "11R", "12L", "12R"],
+      "clinical_scope": "annotation_semantic",
+      "single_frame_observability": "yes",
+      "operational_candidate": "near_or_touch",
+      "sources": ["annotation_protocol_doc"]
+    },
+    {
+      "rule_id": "AA-019",
+      "subject": "Omentum",
+      "relation": "attached_to",
+      "object": "Gastric conduit",
+      "stations": [],
+      "clinical_scope": "annotation_semantic_post_pullup",
+      "single_frame_observability": "yes_if_present",
+      "operational_candidate": "documentation_until_supported",
+      "sources": ["annotation_protocol_doc"]
+    }
+  ]
+}
